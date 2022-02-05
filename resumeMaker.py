@@ -9,13 +9,32 @@ class PDF(FPDF):
         self.cell(0, 10, "RESUME", ln=1, align="C")
         self.ln()
 
+    def body(self):
+        self.set_font("helvetica", '', 12)
+        
 #Format the layout of the pdf
 pdf = PDF('P', 'mm', 'Letter')
 pdf.add_page()
 pdf.set_font("helvetica", '', 16)
 
+#Load in the json file
+with open('resume.json') as f:
+    data = json.load(f)
+
 #Arrange the texts of the resume
-pdf.cell(40, 50, "test")
+for info in data:
+    pdf.cell(100, 10, f"Name: {info['name']}", border=True, ln=1)
+    pdf.cell(100, 10, f"Age: {info['age']}", border=True, ln=1)
+    pdf.cell(100, 10, f"Job: {info['job']}", border=True, ln=1)
+    pdf.cell(190, 10, f"Contact Number: {info['contactNum']}", border=True, ln=1)
+    pdf.cell(190, 10, f"Email: {info['email']}", border=True, ln=1)
+    pdf.ln()
+    pdf.ln()
+    pdf.cell(190, 10, f"Skills: {info['skills']}", ln=1)
+    pdf.ln()
+    pdf.cell(190, 10, f"Hobbies: {info['hobbies']}", ln=1)
+    pdf.ln()
+    pdf.cell(190, 10, f"Educational Attainment: {info['educAttain']}", ln=1)
 
 #Export and make the pdf
 pdf.output('DEGUIA_JUSTINCARL.pdf')
