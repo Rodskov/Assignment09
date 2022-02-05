@@ -1,6 +1,4 @@
 import json
-from posixpath import split
-from unicodedata import digit
 from fpdf import FPDF
 
 #Insert your 2x2 picture
