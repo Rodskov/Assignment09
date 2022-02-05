@@ -1,12 +1,23 @@
 [
     {
-    "name": "Justin Carl C. De Guia",
+    "firstName": "JUSTIN CARL",
+    "lastName": "DE GUIA",
     "age": 18,
     "job": "College Student",
     "contactNum": "09202261873",
+    "github": "@Rodskov",
     "email": "jcarldeguia@gmail.com",
-    "skills": "Time Management, Critical Thinking",
-    "hobbies": "Watching shows, Reading books",
-    "educAttain": "High School Graduate, First Year College Student"
+    "skills": ["Time Management", "Critical Thinking", "Python Programming"],
+    "hobbies": ["Watching shows", "Reading books", "Solving puzzles"],
+    "educ": [
+        {
+            "school": "San Ildefonso National High School",
+            "year": "2015-2020"
+        },
+        {
+            "school": "Polytechnic University of the Philippines",
+            "year": "2020-Present"
+        }
+    ]
     }
 ]
