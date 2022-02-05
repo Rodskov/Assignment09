@@ -8,7 +8,7 @@ class PDF(FPDF):
     def header(self):
         self.set_fill_color(r=229, g=228, b=226) #Gray Rectangle
         self.rect(x=10, y=8, w=150, h=78, style="FD") #horizontal
-        self.rect(x=123, y=8, w=78.5, h=185, style="FD") #vertical
+        self.rect(x=123, y=8, w=78.5, h=250, style="FD") #vertical
         self.set_fill_color(r=0, g=145, b=234) #Sky Blue Rectangle
         self.rect(x=123, y=8, w=78.5, h=78, style="FD") #portrait background
         self.image("picture.jpg", 125, 9.5, 75)
@@ -59,9 +59,9 @@ for info in data:
     pdf.cell(190, 10, f"Email: {info['email']}", ln=1)
     for level in info['educ']:
         pdf.set_font("times", '', 16)
-        pdf.cell(100, 10, f"{level['school']}")
+        pdf.cell(100, 10, f"{level['school']}", ln=1)
         pdf.set_font("times", 'I', 16)
-        pdf.cell(190, 10, f"-   {level['year']}", ln=1)
+        pdf.cell(190, 10, f"- {level['year']}", ln=1)
 
 #Draw lines to design
 pdf.set_line_width(2)
