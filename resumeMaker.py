@@ -1,3 +1,4 @@
+from fileinput import filename
 import json
 from fpdf import FPDF
 
@@ -18,8 +19,8 @@ pdf = PDF('P', 'mm', 'Letter')
 pdf.add_page()
 
 #Load in the json file
-with open('resume.json') as f:
-    data = json.load(f)
+with open('resume.json') as resume:
+    data = json.load(resume)
 
 #Arrange the texts of the resume
 for info in data:
@@ -68,5 +69,9 @@ pdf.line(x1=12.5, y1=82, x2=30, y2=82) #College Student Line
 pdf.line(x1=12.5, y1=102, x2=30, y2=102) #Additional Info Line
 pdf.line(x1=128.5, y1=102, x2=150, y2=102) #Contact Info Line
 
-#Export and make the pdf
-pdf.output('DEGUIA_JUSTINCARL.pdf')
+#Export and make the pdf (Automated file name maker)
+for info in data:
+    lastName = ''.join(info['lastName'].split()).upper()
+    firstName = ''.join(info['firstName'].split()).upper()
+    fileName = (lastName+"_"+firstName)
+pdf.output(f"{fileName}.pdf")
